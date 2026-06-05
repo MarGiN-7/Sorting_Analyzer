@@ -14,7 +14,7 @@ int* generateData(int n, int type) {
     srand(time(NULL));
 
     for (int i = 0; i < n; i++)
-        a[i] = rand() % 1000000000;  // random number
+        a[i] = rand() % 1000000000;  
 
     if (type == 2) 
         qsort(a, n, sizeof(int), compareInts);
