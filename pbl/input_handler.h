@@ -7,4 +7,5 @@ int getDataType();
 int* getAlgorithmChoices(int* count);
 int* getManualArray(int* size);
 
+
 #endif
