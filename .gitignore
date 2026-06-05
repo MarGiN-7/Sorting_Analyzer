@@ -1,0 +1,17 @@
+# Compiler outputs
+*.o
+*.a
+*.exe
+*.out
+sorter
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
