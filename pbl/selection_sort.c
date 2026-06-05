@@ -1,5 +1,6 @@
 #include "selection_sort.h"
 
+
 void selectionSort(int* arr, int n, Metrics* m) {
     for (int i = 0; i < n - 1; i++) {
         int minIdx = i;
