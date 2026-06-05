@@ -31,7 +31,7 @@ void countSort(int* arr, int n, Metrics* m) {
     int* count = (int*)calloc(range, sizeof(int));
     int* output = (int*)malloc(n * sizeof(int));
 
-    // Count frequency
+
     for (int i = 0; i < n; i++) {
         count[arr[i] - minVal]++;
         m->comparisons++;
