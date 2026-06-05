@@ -15,3 +15,4 @@ void insertionSort(int* arr, int n, Metrics* m) {
         arr[j + 1] = key;
     }
 }
+
