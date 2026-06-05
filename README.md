@@ -33,7 +33,6 @@ Sorting Analyzer provides an interactive platform to:
 
 ### Prerequisites
 - GCC compiler (or any C compiler)
-- Make (optional)
 
 ### Compile
 ```bash
