@@ -86,7 +86,7 @@ void runAnalysis(int* arr, int arr_size, int* algos, int algos_count) {
     printf("=====================================================================\n");
     COLOR_RESET;
 
-    // Print rows
+
     for (int i = 0; i < results_count; i++) {
         AlgoResult* res = &results[i];
 
