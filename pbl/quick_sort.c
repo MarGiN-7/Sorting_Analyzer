@@ -21,6 +21,7 @@ int partitionQS(int* arr, int low, int high, Metrics* m) {
     return i + 1;
 }
 
+
 void quickSortHelper(int* arr, int low, int high, Metrics* m) {
     if (low < high) {
         int pi = partitionQS(arr, low, high, m);
@@ -28,6 +29,7 @@ void quickSortHelper(int* arr, int low, int high, Metrics* m) {
         quickSortHelper(arr, pi + 1, high, m);
     }
 }
+
 
 void quickSort(int* arr, int n, Metrics* m) {
     quickSortHelper(arr, 0, n - 1, m);
