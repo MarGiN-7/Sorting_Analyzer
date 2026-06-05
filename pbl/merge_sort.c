@@ -30,6 +30,7 @@ void merge(int* arr, int l, int mid, int r, Metrics* met) {
     free(R);
 }
 
+
 void mergeSortHelper(int* arr, int l, int r, Metrics* m) {
     if (l < r) {
         int mid = l + (r - l) / 2;
@@ -38,6 +39,7 @@ void mergeSortHelper(int* arr, int l, int r, Metrics* m) {
         merge(arr, l, mid, r, m);
     }
 }
+
 
 void mergeSort(int* arr, int n, Metrics* m) {
     mergeSortHelper(arr, 0, n - 1, m);
