@@ -1,8 +1,3 @@
-/*
- * Bubble Sort - O(n^2) time, O(1) space
- * Simple comparison-based algorithm that repeatedly steps through the list,
- * compares adjacent elements and swaps them if they are in wrong order.
- */
 
 #include "bubble_sort.h"
 
