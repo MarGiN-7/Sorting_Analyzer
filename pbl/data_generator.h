@@ -3,4 +3,5 @@
 
 int* generateData(int n, int type);
 
+
 #endif
