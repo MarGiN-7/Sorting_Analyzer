@@ -1,11 +1,11 @@
 #include <stdlib.h>
 #include <time.h>
 
-int compareInts(const void* a, const void* b) {
+static int compareIntsAsc(const void* a, const void* b) {
     return (*(int*)a - *(int*)b);
 }
 
-int compareIntsDesc(const void* a, const void* b) {
+static int compareIntsDesc(const void* a, const void* b) {
     return (*(int*)b - *(int*)a);
 }
 
@@ -17,7 +17,7 @@ int* generateData(int n, int type) {
         a[i] = rand() % 1000000000;  
 
     if (type == 2) 
-        qsort(a, n, sizeof(int), compareInts);
+        qsort(a, n, sizeof(int), compareIntsAsc);
     else if (type == 3) 
         qsort(a, n, sizeof(int), compareIntsDesc);
 
