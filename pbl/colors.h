@@ -3,30 +3,34 @@
 
 #ifdef _WIN32
   #include <windows.h>
+  #include <stdio.h>
 
-  enum Color { RESET = 7, CYAN = 11, GREEN = 10, YELLOW = 14, MAGENTA = 13, RED = 12, BOLD_ON = 15 };
-
-  static inline void setColor(enum Color color) {
-    fflush(stdout);
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    SetConsoleTextAttribute(hConsole, (WORD)color);
-  }
+  #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+    #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+  #endif
 
   static inline void initConsole() {
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD dwMode = 0;
-    GetConsoleMode(hOut, &dwMode);
-    SetConsoleMode(hOut, dwMode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+    if (GetConsoleMode(hOut, &dwMode)) {
+      SetConsoleMode(hOut, dwMode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+    }
   }
 
-  #define COLOR_CYAN    setColor(CYAN)
-  #define COLOR_GREEN   setColor(GREEN)
-  #define COLOR_YELLOW  setColor(YELLOW)
-  #define COLOR_MAGENTA setColor(MAGENTA)
-  #define COLOR_RED     setColor(RED)
-  #define COLOR_RESET   setColor(RESET)
+  static inline void _setColor(int attr) {
+    fflush(stdout);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (WORD)attr);
+  }
+
+  #define COLOR_CYAN    _setColor(11)
+  #define COLOR_GREEN   _setColor(10)
+  #define COLOR_YELLOW  _setColor(14)
+  #define COLOR_MAGENTA _setColor(13)
+  #define COLOR_RED     _setColor(12)
+  #define COLOR_RESET   _setColor(7)
 
 #else
+  #include <stdio.h>
   #define initConsole() ((void)0)
   #define COLOR_CYAN    printf("\033[36m")
   #define COLOR_GREEN   printf("\033[32m")
@@ -35,6 +39,5 @@
   #define COLOR_RED     printf("\033[31m")
   #define COLOR_RESET   printf("\033[0m")
 #endif
-
 
 #endif
