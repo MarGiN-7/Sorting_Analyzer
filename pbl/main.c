@@ -18,6 +18,7 @@ void printTitle() {
 }
 
 int main() {
+    initConsole();
     printTitle();
 
     int* arr = NULL;
